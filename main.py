@@ -2,15 +2,27 @@
 import argparse
 import sys
 from Xlib import X, display
-
+import pyautogui
+import time
 def linux():
-    while True:
-        d = display.Display()
-        s = d.screen()
-        root = s.root()
-        root.warp_pointer(300,300)
-        d.sync()
 
+    while True:
+        pyautogui.moveTo(1280,720)
+        pyautogui.moveTo(1290,730)
+        pyautogui.moveTo(1280,720)
+        pyautogui.moveTo(1270,710)
+        pyautogui.moveTo(1280,720)
+        time.sleep(1)
+
+def windows():
+
+    while True:
+        pyautogui.moveTo(1280,720)
+        pyautogui.moveTo(1290,730)
+        pyautogui.moveTo(1280,720)
+        pyautogui.moveTo(1270,710)
+        pyautogui.moveTo(1280,720)
+        time.sleep(1)
 
 def create_parser():
     parser = argparse.ArgumentParser(
@@ -40,7 +52,8 @@ def main():
     
     if args.mode =="linux":
         linux()
-    
+    if args.mode == "windows":
+        windows()
 
 if __name__ == '__main__':
     sys.exit(main())
